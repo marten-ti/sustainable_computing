@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "runs": 32,
+  "requests": 562888,
+  "failures": 0,
+  "checks": [
+    "frozen source hashes",
+    "request-count CSV agreement",
+    "all request timestamps inside cutoffs",
+    "interval energy sums",
+    "loaded guard duration",
+    "no overlapping runs",
+    "no Locust errors/tracebacks",
+    "eight repetitions per duration",
+    "offline audit; original boot recorded in environment.json"
+  ]
+}

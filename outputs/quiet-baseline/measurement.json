@@ -1,0 +1,126 @@
+{
+  "start_epoch": 1795081788.773118,
+  "end_epoch": 1795082148.773118,
+  "settle_seconds": 60,
+  "windows": [
+    {
+      "window": 1,
+      "start_epoch": 1795081788.773118,
+      "end_epoch": 1795081908.773118,
+      "duration_s": 120,
+      "package_energy_j": 550.4077830195602,
+      "mean_package_power_w": 4.586731525163001,
+      "modeled_active_energy_j": 27.231761128728976,
+      "modeled_idle_energy_j": 523.1760218908312,
+      "modeled_active_power_w": 0.22693134273940813,
+      "modeled_idle_power_w": 4.3598001824235935,
+      "cpu_usage_mean_pct": 4.93772609182318,
+      "cpu_usage_max_pct": 6.399187404777036,
+      "power_gauge_sd_w": 0.44063081659279224,
+      "power_gauge_min_w": 3.8355702723925154,
+      "power_gauge_max_w": 5.5755563175748994,
+      "scrape_samples": 24,
+      "health_probe_requests": 24,
+      "non_health_frontend_requests": 0,
+      "quiet_traffic_check_passed": true
+    },
+    {
+      "window": 2,
+      "start_epoch": 1795081908.773118,
+      "end_epoch": 1795082028.773118,
+      "duration_s": 120,
+      "package_energy_j": 543.5026092046464,
+      "mean_package_power_w": 4.52918841003872,
+      "modeled_active_energy_j": 26.042288905271562,
+      "modeled_idle_energy_j": 517.4603202993749,
+      "modeled_active_power_w": 0.21701907421059635,
+      "modeled_idle_power_w": 4.312169335828124,
+      "cpu_usage_mean_pct": 4.781568293322494,
+      "cpu_usage_max_pct": 5.762883980720051,
+      "power_gauge_sd_w": 0.3375439759059781,
+      "power_gauge_min_w": 4.030388278962198,
+      "power_gauge_max_w": 5.244973262083372,
+      "scrape_samples": 24,
+      "health_probe_requests": 24,
+      "non_health_frontend_requests": 0,
+      "quiet_traffic_check_passed": true
+    },
+    {
+      "window": 3,
+      "start_epoch": 1795082028.773118,
+      "end_epoch": 1795082148.773118,
+      "duration_s": 120,
+      "package_energy_j": 554.6752164916252,
+      "mean_package_power_w": 4.622293470763543,
+      "modeled_active_energy_j": 27.24343295249855,
+      "modeled_idle_energy_j": 527.4317835391266,
+      "modeled_active_power_w": 0.22702860793748794,
+      "modeled_idle_power_w": 4.395264862826055,
+      "cpu_usage_mean_pct": 4.855338955835866,
+      "cpu_usage_max_pct": 6.216696269987731,
+      "power_gauge_sd_w": 0.533883871536621,
+      "power_gauge_min_w": 3.5961476269345596,
+      "power_gauge_max_w": 5.960891801466593,
+      "scrape_samples": 24,
+      "health_probe_requests": 24,
+      "non_health_frontend_requests": 0,
+      "quiet_traffic_check_passed": true
+    }
+  ],
+  "locust_checks": [
+    {
+      "epoch": 1795081818.8173652,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795081848.8622565,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795081878.8904135,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795081908.8206475,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795081938.8666434,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795081968.8960066,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795081998.9214475,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795082028.7988842,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795082058.8264687,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795082088.8750587,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795082118.9237232,
+      "locust_pids": []
+    },
+    {
+      "epoch": 1795082148.8223,
+      "locust_pids": []
+    }
+  ],
+  "mean_package_power_w": 4.579404468655087,
+  "total_package_energy_j": 1648.5856087158318,
+  "between_window_sd_w": 0.04698300119134429,
+  "between_window_cv_pct": 1.0259631249637706,
+  "traffic_check_passed": true,
+  "note": "Three adjacent windows, not independent repetitions. Stack stays deployed; health probes and normal background activity remain. This observation is hours after the earlier loaded campaign, not a paired before/after baseline."
+}

@@ -1,0 +1,7 @@
+# Analysis notes recorded while collection proceeds
+
+The raw data and source hashes distinguish the workload/controller from later report code. Analysis imports/tests and environment capture ran on the shared controller/measurement host during excluded revision-1 calibration. The final revision-2 campaign is intended to be quiet except for lightweight status checks and source/report preparation; final numerical analysis and plot generation run after collection. The effect of those lightweight controller activities is not isolated, and no final block will be discarded based on its results. Randomized blocks and a drift plot are used to expose, not erase, this limitation.
+
+The comparison test is exact, unpaired and one-sided for an increase in mean CPU-package energy. Resampling assignments are disjoint within each hypothetical A/B comparison but reused across comparisons, so their count must not be used as an independent binomial sample size. The power model assumes a multiplicative energy shift with unchanged noise and workload behavior. This is not a claim about real code regressions.
+
+CV confidence intervals are percentile bootstrap intervals from eight run totals per duration. They are approximate and do not prove a plateau. Temporal dependence, DVFS and heating can limit the usual independent-run interpretation. Replicate-order and temperature plots are retained in the final report.

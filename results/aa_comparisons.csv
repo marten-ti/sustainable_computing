@@ -1,0 +1,13 @@
+duration_s,repetitions_per_variant,p_one_sided,false_alarm,mean_a_j,mean_b_j,relative_difference_pct,note
+15.0,2,0.3333333333333333,False,630.7592447167845,632.2467946353136,0.2358348182747605,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+15.0,3,0.45,False,631.5308133243428,631.653636059491,0.01944841527234953,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+15.0,4,0.6857142857142857,False,631.624596356618,631.2099791808287,-0.06564297498560245,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+30.0,2,0.8333333333333334,False,1278.2441857857048,1271.5796517356648,-0.5213819178018331,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+30.0,3,0.75,False,1272.2200767042038,1265.3323674169758,-0.5413929093990744,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+30.0,4,0.8,False,1271.9845948608709,1264.6674362649792,-0.5752552841799208,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+60.0,2,0.8333333333333334,False,2530.9095215799753,2519.613538243284,-0.4463211047402216,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+60.0,3,0.75,False,2528.909062166776,2523.8757424756964,-0.19903126476075172,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+60.0,4,0.8,False,2532.1344758323394,2526.388562687731,-0.2269197469348394,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+120.0,2,0.8333333333333334,False,5086.845954839664,5052.750163558463,-0.6702737134935632,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+120.0,3,0.7,False,5069.457732469037,5048.567893648443,-0.4120724527753361,predefined A/A pseudo labels; comparisons overlap and are not independent trials
+120.0,4,0.8714285714285714,False,5067.660094913124,5042.333310895803,-0.49977274605974564,predefined A/A pseudo labels; comparisons overlap and are not independent trials

@@ -1,0 +1,18 @@
+{
+  "campaign_runs": 32,
+  "repetitions_per_duration": 8,
+  "requests": 562888,
+  "failures": 0,
+  "measured_package_energy_j": 75872.01220396918,
+  "measured_seconds": 1800.0,
+  "campaign_elapsed_s": 2639.441321372986,
+  "lowest_observed_cv_duration_s": 15,
+  "lowest_observed_cv_pct": 0.20825714360369943,
+  "cv_monotonically_decreases": false,
+  "actual_regression_tested": false,
+  "reliability_certified": false,
+  "n4_predefined_aa_tests": 4,
+  "n4_false_alarms": 0,
+  "mean_power_order_spearman_rho": -0.1407624633431085,
+  "mean_power_order_spearman_p": 0.4422316402861312
+}

@@ -1,0 +1,43 @@
+{
+  "purpose": "preliminary duration/noise study; no CI pipeline and no actual regression variant",
+  "durations_seconds": [
+    15,
+    30,
+    60,
+    120
+  ],
+  "repetitions_per_duration": 8,
+  "order": "8 randomized complete blocks; one of each duration in every block",
+  "randomization_seed": 20261119,
+  "workload_seed": 20261119,
+  "user_selection": "highest passing smoke level with zero failures, max observed node CPU <=75%, p95 latency <100 ms",
+  "think_time_seconds": 0,
+  "warmup_after_all_users_spawn_seconds": 15,
+  "measurement": "linear interpolation of raw Prometheus Kepler cumulative package-energy counters at exact workload completion-window boundaries",
+  "primary_energy": "node CPU package active + idle counter deltas; includes co-located generator and background host work",
+  "secondary_energy": "Online Boutique pod package-energy attribution estimates",
+  "quality_gate": "zero smoke failures, <=0.1% campaign failure rate, no missing/reset counters, no scrape gap >10.5s, complete boundary bracketing, duration drift <0.5s",
+  "analysis": {
+    "cv": "sample SD/mean across independent runs at each duration, bootstrap 95% intervals",
+    "aa": "predefined pseudo labels by block: A,B,B,A,A,B,B,A; one-sided exact permutation test for a mean energy increase",
+    "repetition_counts": [
+      2,
+      3,
+      4
+    ],
+    "alpha": 0.05,
+    "simulated_relative_energy_increases": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "simulation": "exhaustive disjoint subset resampling from 8 baseline runs; scale pseudo candidate energies; conditional planning estimates only",
+    "reliability_target": "80% detection at <=5% false alarms; cannot certify this target without independent A/A and actual regression experiments",
+    "stability_screen": "exploratory relative CV improvement <10% between consecutive duration doublings; uncertainty and nonmonotonicity reported",
+    "p95_energy": "p95 of approximately 5-second interval energy/completed-request ratios, NOT p95 individual request energy"
+  },
+  "revision": 2,
+  "post_cutoff_loaded_guard_seconds": 11,
+  "calibration_exclusion": "All revision-1 smoke/campaign runs are retained in calibration_v1 and excluded a priori because of cutoff step/interpolation bias."
+}

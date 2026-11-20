@@ -1,0 +1,46 @@
+<!doctype html><meta charset="utf-8"><title>Preliminary energy results</title><style>body{font:17px system-ui;max-width:1150px;margin:40px auto;padding:0 20px;color:#17212b}img{width:100%;height:auto}table{border-collapse:collapse;width:100%}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:right}.note{background:#fff1cc;padding:16px;border-radius:8px}</style><h1>Preliminary energy benchmark results</h1><p>32 runs, 562,888 HTTP requests, 0 failures; 3 users without think-time pauses.</p><p class="note">Baseline-only pilot. Locust shares the measured host. No minimum reliable duration is certified; detection charts are simulations, not actual regression tests.</p><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>duration_s</th>
+      <th>repetitions</th>
+      <th>mean_energy_j</th>
+      <th>cv_energy_pct</th>
+      <th>mean_rps</th>
+      <th>mean_j_per_request</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15.000</td>
+      <td>8</td>
+      <td>631.417</td>
+      <td>0.208</td>
+      <td>313.208</td>
+      <td>0.134</td>
+    </tr>
+    <tr>
+      <td>30.000</td>
+      <td>8</td>
+      <td>1268.326</td>
+      <td>0.859</td>
+      <td>313.092</td>
+      <td>0.135</td>
+    </tr>
+    <tr>
+      <td>60.000</td>
+      <td>8</td>
+      <td>2529.262</td>
+      <td>0.390</td>
+      <td>312.950</td>
+      <td>0.135</td>
+    </tr>
+    <tr>
+      <td>120.000</td>
+      <td>8</td>
+      <td>5054.997</td>
+      <td>0.553</td>
+      <td>312.443</td>
+      <td>0.135</td>
+    </tr>
+  </tbody>
+</table><p>Lowest observed CV: 0.21% at 15 seconds; uncertainty is shown below.</p><h2>Duration and stability</h2><img src="figures/duration_overview.png" alt="Duration and stability"><h2>Power timeline</h2><img src="figures/power_timeline.png" alt="Power timeline"><h2>Drift and temperature</h2><img src="figures/drift_and_temperature.png" alt="Drift and temperature"><h2>Conditional planning simulation</h2><img src="figures/conditional_detection.png" alt="Conditional planning simulation"><h2>Data and method</h2><p><a href="REPORT.md">Full report and limitations</a> · <a href="results/runs.csv">Per-run CSV</a> · <a href="results/duration_summary.csv">Duration summary CSV</a> · <a href="figures/report.pdf">PDF charts</a></p>

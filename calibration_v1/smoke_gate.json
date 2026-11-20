@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "users_selected": 3,
+  "candidates": [
+    {
+      "run_id": "smoke-u1",
+      "users": 1,
+      "failures": 0,
+      "rps": 141.0,
+      "p95_latency_ms": 9.18437002110295,
+      "peak_node_cpu_fraction": 0.32029023062956924
+    },
+    {
+      "run_id": "smoke-u3",
+      "users": 3,
+      "failures": 0,
+      "rps": 312.8,
+      "p95_latency_ms": 12.442936014849693,
+      "peak_node_cpu_fraction": 0.647389558232367
+    },
+    {
+      "run_id": "smoke-u5",
+      "users": 5,
+      "failures": 0,
+      "rps": 382.8666666666667,
+      "p95_latency_ms": 17.522797017591074,
+      "peak_node_cpu_fraction": 0.7582650092552948
+    }
+  ],
+  "selection_rule": "Highest tested user count with zero failures, observed peak node CPU <=75%, p95 latency <100 ms",
+  "checks": [
+    "complete shopping flows",
+    "zero failures",
+    "real energy data bracketing measurement",
+    "counter continuity",
+    "timing within 0.5 seconds"
+  ]
+}

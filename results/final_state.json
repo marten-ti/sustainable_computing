@@ -1,0 +1,10 @@
+{
+  "verified_at_utc": "2026-11-19T01:15:38.572734+00:00",
+  "all_pods_ready": true,
+  "pods_count": 21,
+  "application_deployment_spec_unchanged": true,
+  "all_scrape_targets_up": true,
+  "scrape_targets_count": 14,
+  "experiment_locust_processes_remaining": 0,
+  "kernel_boot_unchanged": true
+}

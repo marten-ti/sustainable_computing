@@ -1,0 +1,5 @@
+quantity,condition,power_w,measurement_type
+observed quiet CPU-package power,"quiet observation, morning",4.579404468655087,counter-derived package total
+modeled idle under quiet conditions,"quiet observation, morning",4.355744793692591,utilization-based partition
+modeled idle under earlier load,"earlier night session, 120-second runs",16.066514934136528,utilization-based partition
+observed package power under earlier load,"earlier night session, 120-second runs",42.12497252420387,"counter-derived package total, includes Locust"

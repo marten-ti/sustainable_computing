@@ -1,0 +1,4 @@
+shorter_duration_s,longer_duration_s,relative_cv_improvement_pct,bootstrap_ci_low_pct,bootstrap_ci_high_pct,small_change_screen,interpretation
+15.0,30.0,-312.3085578067956,-955.7083178036814,-95.552372154929,False,exploratory paired-block bootstrap; not proof of a stable CV plateau
+30.0,60.0,54.5672429540065,12.004470101512672,75.10826095170327,False,exploratory paired-block bootstrap; not proof of a stable CV plateau
+60.0,120.0,-41.82518342441526,-147.15377195207444,42.6047418365542,False,exploratory paired-block bootstrap; not proof of a stable CV plateau

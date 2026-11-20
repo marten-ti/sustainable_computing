@@ -1,0 +1,23 @@
+{
+  "apiVersion": "v1",
+  "data": {
+    "config.yaml": "cpu:\n  preferredMeters:\n  - rapl\n  - hwmon\ndebug:\n  pprof:\n    enabled: false\ndev:\n  fake-cpu-meter:\n    enabled: false\n    zones: []\n  fake-gpu-meter:\n    deviceCount: 1\n    enabled: false\n    sharingMode: time-slicing\nexperimental:\n  gpu:\n    dcgmEndpoint: \"\"\n    enabled: false\n    idlePower: 0\n    metricsCacheTTL: 2s\n  hwmon:\n    chipRules: []\n    forceEnabled: false\n    zones: []\n  platform:\n    redfish:\n      configFile: /etc/kepler/redfish.yaml\n      enabled: false\n      httpTimeout: 5s\n      nodeName: \"\"\nexporter:\n  prometheus:\n    debugCollectors:\n    - go\n    enabled: true\n    metricsLevel:\n    - node\n    - process\n    - container\n    - vm\n    - pod\n  stdout:\n    enabled: false\nhost:\n  procfs: /host/proc\n  sysfs: /host/sys\nkube:\n  config: \"\"\n  enabled: false\n  nodeName: \"\"\n  podInformer:\n    mode: kubelet\n    pollInterval: 15s\nlog:\n  format: text\n  level: debug\nmonitor:\n  interval: 5s\n  maxTerminated: 100\n  minTerminatedEnergyThreshold: 10\n  staleness: 500ms\nrapl:\n  zones: []\nweb:\n  configFile: \"\"\n  listenAddresses:\n  - :28282\n"
+  },
+  "kind": "ConfigMap",
+  "metadata": {
+    "annotations": {
+      "meta.helm.sh/release-name": "kepler",
+      "meta.helm.sh/release-namespace": "kepler"
+    },
+    "labels": {
+      "app.kubernetes.io/instance": "kepler",
+      "app.kubernetes.io/managed-by": "Helm",
+      "app.kubernetes.io/name": "kepler",
+      "app.kubernetes.io/part-of": "kepler",
+      "app.kubernetes.io/version": "v0.13.0",
+      "helm.sh/chart": "kepler-0.13.0"
+    },
+    "name": "kepler",
+    "namespace": "kepler"
+  }
+}

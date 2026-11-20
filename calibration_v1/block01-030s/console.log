@@ -1,0 +1,41 @@
+[2026-11-19 01:14:19,107] Debian-1305-trixie-amd64-base/INFO/locust.main: Starting Locust 2.47.0
+[2026-11-19 01:14:19,107] Debian-1305-trixie-amd64-base/INFO/locust.main: Run time limit set to 75 seconds
+[2026-11-19 01:14:19,108] Debian-1305-trixie-amd64-base/INFO/locust.runners: Ramping to 3 users at a rate of 3.00 per second
+[2026-11-19 01:14:19,108] Debian-1305-trixie-amd64-base/INFO/locust.runners: All users spawned: {"Shopper": 3} (3 total users)
+[2026-11-19 01:15:04,220] Debian-1305-trixie-amd64-base/INFO/locust.main: Shutting down (exit code 0)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+POST     add_to_cart                                                                     1903     0(0.00%) |      9       8      19     10 |   63.38        0.00
+GET      cart                                                                            1903     0(0.00%) |      8       6      20      8 |   63.38        0.00
+POST     checkout                                                                        1905     0(0.00%) |     11       9      36     11 |   63.44        0.00
+GET      home                                                                            1903     0(0.00%) |      9       7      25      9 |   63.38        0.00
+GET      product                                                                         1903     0(0.00%) |      7       6      17      7 |   63.38        0.00
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                      9517     0(0.00%) |      9       6      36      9 |  316.95        0.00
+
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+POST     add_to_cart                                                                            10     10     10     10     11     11     12     13     17     20     20   1903
+GET      cart                                                                                    8      8      9      9      9     10     11     11     16     21     21   1903
+POST     checkout                                                                               11     12     12     12     13     14     15     16     34     36     36   1905
+GET      home                                                                                    9     10     10     10     11     11     12     13     25     26     26   1903
+GET      product                                                                                 7      8      8      8      9      9     10     10     14     17     17   1903
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                              9     10     10     11     11     12     13     14     21     36     36   9517
+
+Traceback (most recent call last):
+  File "src/gevent/greenlet.py", line 912, in gevent._gevent_cgreenlet.Greenlet.run
+  File "/root/Documents/Codex/2026-11-18/files-pasted-by-the-user-codex/work/locust-venv/lib/python3.13/site-packages/locust/stats.py", line 1170, in stats_writer
+    self.requests_csv_filehandle.seek(requests_csv_data_start)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: I/O operation on closed file.
+2026-11-19T00:15:04Z <Greenlet at 0x7f009554fd80: <bound method StatsCSVFileWriter.stats_writer of <locust.stats.StatsCSVFileWriter object at 0x7f0095546120>>> failed with ValueError
+
+[2026-11-19 01:15:04,222] Debian-1305-trixie-amd64-base/CRITICAL/locust.main: Unhandled exception in greenlet: <Greenlet at 0x7f009554fd80: <bound method StatsCSVFileWriter.stats_writer of <locust.stats.StatsCSVFileWriter object at 0x7f0095546120>>>
+Traceback (most recent call last):
+  File "src/gevent/greenlet.py", line 912, in gevent._gevent_cgreenlet.Greenlet.run
+  File "/root/Documents/Codex/2026-11-18/files-pasted-by-the-user-codex/work/locust-venv/lib/python3.13/site-packages/locust/stats.py", line 1170, in stats_writer
+    self.requests_csv_filehandle.seek(requests_csv_data_start)
+    ^^^^^^^
+ValueError: I/O operation on closed file.

@@ -1,0 +1,28 @@
+{
+  "captured_epoch": 1795047603.023478,
+  "kernel": "6.12.94+deb13-amd64",
+  "machine": "x86_64",
+  "python": "3.13.5",
+  "cpu_model": "Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz",
+  "logical_cpus": 8,
+  "boot_id": "d01139df-bbae-4654-9117-94525adf40dd",
+  "cpu_governors": {
+    "cpu7": "powersave",
+    "cpu5": "powersave",
+    "cpu3": "powersave",
+    "cpu1": "powersave",
+    "cpu6": "powersave",
+    "cpu4": "powersave",
+    "cpu2": "powersave",
+    "cpu0": "powersave"
+  },
+  "thermal_sensors": {
+    "pch_skylake/temp1_input": 38.5,
+    "coretemp/temp3_input": 69.0,
+    "coretemp/temp4_input": 63.0,
+    "coretemp/temp1_input": 69.0,
+    "coretemp/temp5_input": 67.0,
+    "coretemp/temp2_input": 64.0
+  },
+  "note": "Generator shares this host. No CPU governor or cluster configuration changes were made."
+}

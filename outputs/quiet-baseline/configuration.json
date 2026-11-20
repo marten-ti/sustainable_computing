@@ -1,0 +1,16 @@
+{
+  "captured_epoch": 1795081804.9659343,
+  "cpu_governors": {
+    "cpu7": "powersave",
+    "cpu5": "powersave",
+    "cpu3": "powersave",
+    "cpu1": "powersave",
+    "cpu6": "powersave",
+    "cpu4": "powersave",
+    "cpu2": "powersave",
+    "cpu0": "powersave"
+  },
+  "governors_match_earlier_campaign": true,
+  "quiet_definition": "No intentional frontend load; application, health probes and monitoring continue normally.",
+  "design": "60-second settling period, then three adjacent 120-second windows, followed by 11 seconds for bracketing scrapes."
+}

@@ -1,0 +1,18 @@
+{
+  "time_epoch": 1795082148.822328,
+  "kernel": "6.12.94+deb13-amd64",
+  "boot_id": "d01139df-bbae-4654-9117-94525adf40dd",
+  "temperature_c": {
+    "pch_skylake/temp1_input": 39.0,
+    "coretemp/temp3_input": 31.0,
+    "coretemp/temp4_input": 29.0,
+    "coretemp/temp1_input": 32.0,
+    "coretemp/temp5_input": 30.0,
+    "coretemp/temp2_input": 32.0
+  },
+  "loadavg": [
+    0.845703125,
+    0.93310546875,
+    0.81103515625
+  ]
+}

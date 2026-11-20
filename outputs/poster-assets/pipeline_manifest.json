@@ -1,0 +1,59 @@
+{
+  "png_pixels": [
+    14400,
+    6000
+  ],
+  "png_dpi": 600,
+  "width_mm": 609.6,
+  "height_mm": 254.0,
+  "bpmn_nodes": 24,
+  "sequence_flows": 18,
+  "data_associations": 5,
+  "task_label_checks": [
+    {
+      "id": "configure",
+      "font_pt": 16.75149934810954
+    },
+    {
+      "id": "build",
+      "font_pt": 16.75149934810954
+    },
+    {
+      "id": "deploy",
+      "font_pt": 17.3393974940016
+    },
+    {
+      "id": "preQuiet",
+      "font_pt": 18.018792781580586
+    },
+    {
+      "id": "load",
+      "font_pt": 16.75149934810952
+    },
+    {
+      "id": "telemetry",
+      "font_pt": 16.751499348109512
+    },
+    {
+      "id": "postQuiet",
+      "font_pt": 18.018792781580586
+    },
+    {
+      "id": "validate",
+      "font_pt": 15.917895781637737
+    },
+    {
+      "id": "failure",
+      "font_pt": 18.5
+    },
+    {
+      "id": "analyze",
+      "font_pt": 17.86826597131682
+    },
+    {
+      "id": "publish",
+      "font_pt": 17.86826597131682
+    }
+  ],
+  "is_executable": false
+}

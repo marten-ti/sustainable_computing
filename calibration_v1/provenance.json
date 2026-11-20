@@ -1,0 +1,21 @@
+{
+  "source_repository": "/root/sustainable_computing",
+  "source_revision": "1d9ef66",
+  "application_revision": "5f4ccc7d1c4312c72e97cba777c4f6a586026e59",
+  "generator_co_located": true,
+  "transport": "direct Kubernetes ClusterIP HTTP, no port-forward",
+  "measurement_source": "Prometheus raw Kepler scrape samples",
+  "counter_cadence_seconds": 5,
+  "source_issues": [
+    "original repository contains pipeline.py only, no locustfile.py",
+    "original metric kepler_container_joules_total not exported",
+    "original namespace monitoring would select monitoring instead of application",
+    "original code redeploys application during measurement setup",
+    "original warm-up contains no workload and includes Locust startup in energy interval"
+  ],
+  "source_sha256": {
+    "locustfile.py": "9eb058f94df584af88d645137efdb1b726ba1eb61803f33582eaafa1babe37df",
+    "research/experiment.py": "52f936e788bd5eb24b7b52f2098ba5514582c925bc188c0f758cbf75f41b758a",
+    "research/protocol.json": "f0d7aa08f478e25f0dba49703ea5e988b528c0fef6f4c2183d293228ee61764f"
+  }
+}

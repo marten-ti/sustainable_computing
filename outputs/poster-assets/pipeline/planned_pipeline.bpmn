@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_EnergyPilot" targetNamespace="https://example.org/energy-regression-pipeline" exporter="Poster assets generator" exporterVersion="1.0">
+  <bpmn:error id="InvalidTrialError" name="Invalid trial" errorCode="INVALID_TRIAL" />
+  <bpmn:dataStore id="RegistryStore" name="Versioned image registry" />
+  <bpmn:process id="EnergyRegressionPipeline" name="Planned energy-regression experiment pipeline" isExecutable="false">
+    <bpmn:documentation>Proposed workflow, not an implemented CI/CD pipeline. User configures variants, durations, repetitions, users and seed. Trial instances run sequentially in randomized block order. Quiet references before/after each trial are a conservative proposed policy; duration and cadence must be decided before execution. Readiness, smoke or data validation failures signal INVALID_TRIAL and interrupt the subprocess. Analysis publishes pass/fail/inconclusive status; actual detection must be validated on independent A/A and A/B experiments.</bpmn:documentation>
+    <bpmn:subProcess id="trial" name="Execute randomized trial plan">
+      <bpmn:incoming>f_build_trial</bpmn:incoming>
+      <bpmn:outgoing>f_trial_analyze</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics isSequential="true">
+        <bpmn:loopCardinality xsi:type="bpmn:tFormalExpression">number_of_planned_trials</bpmn:loopCardinality>
+      </bpmn:multiInstanceLoopCharacteristics>
+      <bpmn:startEvent id="trialStart">
+        <bpmn:outgoing>i_start</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:task id="deploy" name="Deploy pinned variant; readiness + smoke checks">
+        <bpmn:documentation>Signals the INVALID_TRIAL BPMN error if readiness, smoke, sample continuity, cutoff alignment or request quality checks fail.</bpmn:documentation>
+        <bpmn:incoming>i_start</bpmn:incoming>
+        <bpmn:outgoing>i_deploy_pre</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="preQuiet" name="Quiet reference before trial">
+        <bpmn:incoming>i_deploy_pre</bpmn:incoming>
+        <bpmn:outgoing>i_pre_fork</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:parallelGateway id="fork">
+        <bpmn:incoming>i_pre_fork</bpmn:incoming>
+        <bpmn:outgoing>i_fork_load</bpmn:outgoing>
+        <bpmn:outgoing>i_fork_monitor</bpmn:outgoing>
+      </bpmn:parallelGateway>
+      <bpmn:task id="load" name="Run seeded Locust warm-up → measure → guard (external)">
+        <bpmn:incoming>i_fork_load</bpmn:incoming>
+        <bpmn:outgoing>i_load_join</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="telemetry" name="Capture telemetry Kepler → Prometheus + request timings">
+        <bpmn:incoming>i_fork_monitor</bpmn:incoming>
+        <bpmn:outgoing>i_monitor_join</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:parallelGateway id="join">
+        <bpmn:incoming>i_load_join</bpmn:incoming>
+        <bpmn:incoming>i_monitor_join</bpmn:incoming>
+        <bpmn:outgoing>i_join_post</bpmn:outgoing>
+      </bpmn:parallelGateway>
+      <bpmn:task id="postQuiet" name="Quiet reference after trial">
+        <bpmn:incoming>i_join_post</bpmn:incoming>
+        <bpmn:outgoing>i_post_valid</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:task id="validate" name="Align cutoffs; validate metrics and request results">
+        <bpmn:documentation>Signals the INVALID_TRIAL BPMN error if readiness, smoke, sample continuity, cutoff alignment or request quality checks fail.</bpmn:documentation>
+        <bpmn:incoming>i_post_valid</bpmn:incoming>
+        <bpmn:outgoing>i_valid_end</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:endEvent id="trialEnd">
+        <bpmn:incoming>i_valid_end</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="i_start" sourceRef="trialStart" targetRef="deploy" />
+      <bpmn:sequenceFlow id="i_deploy_pre" sourceRef="deploy" targetRef="preQuiet" />
+      <bpmn:sequenceFlow id="i_pre_fork" sourceRef="preQuiet" targetRef="fork" />
+      <bpmn:sequenceFlow id="i_fork_load" sourceRef="fork" targetRef="load" />
+      <bpmn:sequenceFlow id="i_fork_monitor" sourceRef="fork" targetRef="telemetry" />
+      <bpmn:sequenceFlow id="i_load_join" sourceRef="load" targetRef="join" />
+      <bpmn:sequenceFlow id="i_monitor_join" sourceRef="telemetry" targetRef="join" />
+      <bpmn:sequenceFlow id="i_join_post" sourceRef="join" targetRef="postQuiet" />
+      <bpmn:sequenceFlow id="i_post_valid" sourceRef="postQuiet" targetRef="validate" />
+      <bpmn:sequenceFlow id="i_valid_end" sourceRef="validate" targetRef="trialEnd" />
+    </bpmn:subProcess>
+    <bpmn:startEvent id="start" name="Manual trigger">
+      <bpmn:outgoing>f_start_config</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="configure" name="Configure experiment record environment + pipeline start time">
+      <bpmn:incoming>f_start_config</bpmn:incoming>
+      <bpmn:outgoing>f_config_build</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="build" name="Build revision(s) and publish pinned container images">
+      <bpmn:incoming>f_config_build</bpmn:incoming>
+      <bpmn:outgoing>f_build_trial</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:dataObject id="configRef_Data" name="Durations · repetitions users · seed · variants" />
+    <bpmn:dataObjectReference id="configRef" name="Durations · repetitions users · seed · variants" dataObjectRef="configRef_Data" />
+    <bpmn:dataObject id="sourceRef_Data" name="Source revision(s)" />
+    <bpmn:dataObjectReference id="sourceRef" name="Source revision(s)" dataObjectRef="sourceRef_Data" />
+    <bpmn:dataStoreReference id="registryRef" name="Versioned local image registry" dataStoreRef="RegistryStore" />
+    <bpmn:boundaryEvent id="qualityError" name="Quality gate failed" attachedToRef="trial" cancelActivity="true">
+      <bpmn:outgoing>f_quality_failure</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="CatchInvalidTrial" errorRef="InvalidTrialError" />
+    </bpmn:boundaryEvent>
+    <bpmn:task id="failure" name="Save diagnostics and fail the job">
+      <bpmn:incoming>f_quality_failure</bpmn:incoming>
+      <bpmn:outgoing>f_failure_end</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="failedEnd" name="Job failed">
+      <bpmn:incoming>f_failure_end</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:dataObject id="metricsRef_Data" name="Raw energy + request metrics" />
+    <bpmn:dataObjectReference id="metricsRef" name="Raw energy + request metrics" dataObjectRef="metricsRef_Data" />
+    <bpmn:task id="analyze" name="Compare A/A + A/B CV · detection rate · false alarms">
+      <bpmn:incoming>f_trial_analyze</bpmn:incoming>
+      <bpmn:outgoing>f_analyze_publish</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="publish" name="Publish CSV + figures pipeline timings and job status">
+      <bpmn:incoming>f_analyze_publish</bpmn:incoming>
+      <bpmn:outgoing>f_publish_end</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="finished" name="Finished">
+      <bpmn:incoming>f_publish_end</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="f_start_config" sourceRef="start" targetRef="configure" />
+    <bpmn:sequenceFlow id="f_config_build" sourceRef="configure" targetRef="build" />
+    <bpmn:sequenceFlow id="f_build_trial" sourceRef="build" targetRef="trial" />
+    <bpmn:sequenceFlow id="f_quality_failure" sourceRef="qualityError" targetRef="failure" />
+    <bpmn:sequenceFlow id="f_failure_end" sourceRef="failure" targetRef="failedEnd" />
+    <bpmn:sequenceFlow id="f_trial_analyze" sourceRef="trial" targetRef="analyze" />
+    <bpmn:sequenceFlow id="f_analyze_publish" sourceRef="analyze" targetRef="publish" />
+    <bpmn:sequenceFlow id="f_publish_end" sourceRef="publish" targetRef="finished" />
+    <bpmn:association id="a_config" sourceRef="configRef" targetRef="configure" associationDirection="One" />
+    <bpmn:association id="a_source" sourceRef="sourceRef" targetRef="build" associationDirection="One" />
+    <bpmn:association id="a_registry" sourceRef="build" targetRef="registryRef" associationDirection="One" />
+    <bpmn:association id="a_metrics" sourceRef="telemetry" targetRef="metricsRef" associationDirection="One" />
+    <bpmn:association id="a_metrics_analyze" sourceRef="metricsRef" targetRef="analyze" associationDirection="One" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_EnergyPipeline">
+    <bpmndi:BPMNPlane id="Plane_EnergyPipeline" bpmnElement="EnergyRegressionPipeline">
+      <bpmndi:BPMNShape id="Shape_start" bpmnElement="start">
+        <dc:Bounds x="77.6" y="157.59999999999994" width="34.8" height="34.8" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="30.0" y="200.39999999999995" width="130" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_configure" bpmnElement="configure">
+        <dc:Bounds x="170" y="130" width="270" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_build" bpmnElement="build">
+        <dc:Bounds x="530" y="130" width="300" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_configRef" bpmnElement="configRef">
+        <dc:Bounds x="284.0" y="259.0" width="39.0" height="48.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="341.0" y="258.00000000000006" width="260" height="60" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_sourceRef" bpmnElement="sourceRef">
+        <dc:Bounds x="968.0" y="154.0" width="39.0" height="51.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1025.0" y="154.49999999999994" width="260" height="60" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_registryRef" bpmnElement="registryRef">
+        <dc:Bounds x="1340" y="160" width="90" height="60" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1460" y="165" width="260" height="60" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_trial" bpmnElement="trial" isExpanded="true">
+        <dc:Bounds x="125.0" y="321.99999999999994" width="1680" height="330" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_trialStart" bpmnElement="trialStart">
+        <dc:Bounds x="163.1" y="486.1" width="25.8" height="25.8" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_deploy" bpmnElement="deploy">
+        <dc:Bounds x="230" y="449.49999999999994" width="219.0" height="99.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_preQuiet" bpmnElement="preQuiet">
+        <dc:Bounds x="500" y="449.49999999999994" width="195.0" height="99.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_fork" bpmnElement="fork">
+        <dc:Bounds x="727.9999999999999" y="475.00000000000006" width="48.0" height="48.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_load" bpmnElement="load">
+        <dc:Bounds x="830" y="364.0" width="270" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_telemetry" bpmnElement="telemetry">
+        <dc:Bounds x="830" y="541.0" width="270" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_join" bpmnElement="join">
+        <dc:Bounds x="1145.0" y="475.00000000000006" width="48.0" height="48.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_postQuiet" bpmnElement="postQuiet">
+        <dc:Bounds x="1232.0" y="449.49999999999994" width="195.0" height="99.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_validate" bpmnElement="validate">
+        <dc:Bounds x="1481.0" y="449.49999999999994" width="216.0" height="99.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_trialEnd" bpmnElement="trialEnd">
+        <dc:Bounds x="1737.5" y="485.5" width="27.0" height="27.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_qualityError" bpmnElement="qualityError">
+        <dc:Bounds x="201.5" y="638.5000000000001" width="27.0" height="27.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="150.0" y="673.5" width="130" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_failure" bpmnElement="failure">
+        <dc:Bounds x="290" y="680.5" width="360" height="96.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_failedEnd" bpmnElement="failedEnd">
+        <dc:Bounds x="693.5" y="712.0" width="33.0" height="33.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="645.0" y="753.0" width="130" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_metricsRef" bpmnElement="metricsRef">
+        <dc:Bounds x="782.0" y="700.0" width="42.0" height="54.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="845.0" y="702.0" width="260" height="60" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_analyze" bpmnElement="analyze">
+        <dc:Bounds x="1106.0" y="680.5" width="312.0" height="96.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_publish" bpmnElement="publish">
+        <dc:Bounds x="1466.0" y="680.5" width="312.0" height="96.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_finished" bpmnElement="finished">
+        <dc:Bounds x="1839.5000000000002" y="712.0" width="33.0" height="33.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1791.0" y="753.0" width="130" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_f_start_config" bpmnElement="f_start_config">
+        <di:waypoint x="112.4" y="175.0" />
+        <di:waypoint x="170" y="175.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_config_build" bpmnElement="f_config_build">
+        <di:waypoint x="440" y="175.0" />
+        <di:waypoint x="530" y="175.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_a_config" bpmnElement="a_config">
+        <di:waypoint x="303.5" y="259.0" />
+        <di:waypoint x="303.5" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_a_source" bpmnElement="a_source">
+        <di:waypoint x="968.0" y="179.49999999999994" />
+        <di:waypoint x="830" y="179.49999999999994" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_a_registry" bpmnElement="a_registry">
+        <di:waypoint x="680" y="130" />
+        <di:waypoint x="680" y="92.5" />
+        <di:waypoint x="1385.0" y="92.5" />
+        <di:waypoint x="1385.0" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_build_trial" bpmnElement="f_build_trial">
+        <di:waypoint x="680" y="220" />
+        <di:waypoint x="680" y="254.49999999999994" />
+        <di:waypoint x="965.0" y="254.49999999999994" />
+        <di:waypoint x="965.0" y="321.99999999999994" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_start" bpmnElement="i_start">
+        <di:waypoint x="188.9" y="499.0" />
+        <di:waypoint x="230" y="499.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_deploy_pre" bpmnElement="i_deploy_pre">
+        <di:waypoint x="449.0" y="499.0" />
+        <di:waypoint x="500" y="499.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_pre_fork" bpmnElement="i_pre_fork">
+        <di:waypoint x="695.0" y="499.0" />
+        <di:waypoint x="728.0" y="499.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_fork_load" bpmnElement="i_fork_load">
+        <di:waypoint x="752.0" y="475.0" />
+        <di:waypoint x="752.0" y="409.0" />
+        <di:waypoint x="830" y="409.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_fork_monitor" bpmnElement="i_fork_monitor">
+        <di:waypoint x="752.0" y="523.0" />
+        <di:waypoint x="752.0" y="586.0" />
+        <di:waypoint x="830" y="586.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_load_join" bpmnElement="i_load_join">
+        <di:waypoint x="1100" y="409.0" />
+        <di:waypoint x="1169.0" y="409.0" />
+        <di:waypoint x="1169.0" y="475.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_monitor_join" bpmnElement="i_monitor_join">
+        <di:waypoint x="1100" y="586.0" />
+        <di:waypoint x="1169.0" y="586.0" />
+        <di:waypoint x="1169.0" y="523.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_join_post" bpmnElement="i_join_post">
+        <di:waypoint x="1193.0" y="499.0" />
+        <di:waypoint x="1232.0" y="499.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_post_valid" bpmnElement="i_post_valid">
+        <di:waypoint x="1427.0" y="499.0" />
+        <di:waypoint x="1481.0" y="499.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_i_valid_end" bpmnElement="i_valid_end">
+        <di:waypoint x="1697.0" y="499.0" />
+        <di:waypoint x="1737.5" y="499.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_quality_failure" bpmnElement="f_quality_failure">
+        <di:waypoint x="215.0" y="665.5" />
+        <di:waypoint x="215.0" y="728.5" />
+        <di:waypoint x="290" y="728.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_failure_end" bpmnElement="f_failure_end">
+        <di:waypoint x="650" y="728.5" />
+        <di:waypoint x="693.5" y="728.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_a_metrics" bpmnElement="a_metrics">
+        <di:waypoint x="896.0" y="631.0" />
+        <di:waypoint x="896.0" y="667.0" />
+        <di:waypoint x="803.0" y="667.0" />
+        <di:waypoint x="803.0" y="700.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_trial_analyze" bpmnElement="f_trial_analyze">
+        <di:waypoint x="1262.0" y="652.0" />
+        <di:waypoint x="1262.0" y="680.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_analyze_publish" bpmnElement="f_analyze_publish">
+        <di:waypoint x="1418.0" y="728.5" />
+        <di:waypoint x="1466.0" y="728.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_f_publish_end" bpmnElement="f_publish_end">
+        <di:waypoint x="1778.0" y="728.5" />
+        <di:waypoint x="1839.5" y="728.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_a_metrics_analyze" bpmnElement="a_metrics_analyze">
+        <di:waypoint x="824.0" y="712.0" />
+        <di:waypoint x="836.0" y="712.0" />
+        <di:waypoint x="836.0" y="676.0" />
+        <di:waypoint x="1070" y="676.0" />
+        <di:waypoint x="1070" y="700.0" />
+        <di:waypoint x="1106.0" y="700.0" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

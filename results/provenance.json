@@ -1,0 +1,23 @@
+{
+  "source_repository": "/root/sustainable_computing",
+  "source_revision": "1d9ef66",
+  "application_revision": "5f4ccc7d1c4312c72e97cba777c4f6a586026e59",
+  "generator_co_located": true,
+  "transport": "direct Kubernetes ClusterIP HTTP, no port-forward",
+  "measurement_source": "Prometheus raw Kepler scrape samples",
+  "counter_cadence_seconds": 5,
+  "source_issues": [
+    "original repository contains pipeline.py only, no locustfile.py",
+    "original metric kepler_container_joules_total not exported",
+    "original namespace monitoring would select monitoring instead of application",
+    "original code redeploys application during measurement setup",
+    "original warm-up contains no workload and includes Locust startup in energy interval"
+  ],
+  "source_sha256": {
+    "locustfile.py": "d140e0f482cd7bc1beb1964417a0d76cd992eae0cc4a6274d222d939e37e1b14",
+    "research/experiment.py": "154740bc2c2c8a74ce4db3264e27501cdffe3a2ee6263f984b53db864b6469e3",
+    "research/protocol.json": "adbcd30152513ff9c2ab0a26618598167f66a1bcf9c34d7703b55e211ff041da"
+  },
+  "protocol_revision": 2,
+  "cutoff_guard": "Load held constant for 11 seconds after each measurement cutoff; guard completions excluded from measured statistics."
+}

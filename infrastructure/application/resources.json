@@ -1,0 +1,90 @@
+[
+  {
+    "service": "adservice",
+    "requests": {
+      "cpu": "200m",
+      "memory": "180Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "cartservice",
+    "requests": {
+      "cpu": "200m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "checkoutservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "currencyservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "emailservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "frontend",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "paymentservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "productcatalogservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "recommendationservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "220Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "redis-cart",
+    "requests": {
+      "cpu": "70m",
+      "memory": "200Mi"
+    },
+    "limits": {}
+  },
+  {
+    "service": "shippingservice",
+    "requests": {
+      "cpu": "100m",
+      "memory": "64Mi"
+    },
+    "limits": {}
+  }
+]

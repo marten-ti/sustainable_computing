@@ -1,0 +1,365 @@
+{
+  "records": [
+    {
+      "epoch": 1795081795.355568,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081796.122065,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081805.354707,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081806.121804,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081815.355443,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081816.122058,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081825.354489,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081826.121675,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081835.355524,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081836.122432,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081845.355318,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081846.122524,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081855.355093,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081856.122756,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081865.35502,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081866.121736,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081875.355067,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081876.122104,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081885.355517,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081886.122233,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081895.354758,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081896.121981,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081905.354969,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081906.122628,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081915.354911,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081916.121895,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081925.355464,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081926.122633,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081935.355237,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081936.121309,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081945.355546,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081946.12159,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081955.35472,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081956.122295,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081965.355246,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081966.122197,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081975.355537,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081976.122294,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081985.354226,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081986.122586,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081995.354813,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795081996.12167,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082005.355334,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082006.122407,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082015.354533,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082016.122148,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082025.355311,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082026.122201,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082035.35449,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082036.122545,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082045.355041,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082046.122151,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082055.355308,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082056.122501,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082065.355119,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082066.122784,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082075.355147,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082076.121581,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082085.355351,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082086.121928,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082095.355017,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082096.121905,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082105.35473,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082106.122327,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082115.355324,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082116.121482,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082125.355208,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082126.121407,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082135.35525,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082136.121717,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082145.354998,
+      "path": "/_healthz",
+      "status": 200
+    },
+    {
+      "epoch": 1795082146.121948,
+      "path": "/_healthz",
+      "status": 200
+    }
+  ],
+  "scope": "completed frontend requests in quiet observation; health probes classified separately"
+}

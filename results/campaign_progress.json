@@ -1,0 +1,10 @@
+{
+  "completed": 32,
+  "total": 32,
+  "latest": {
+    "block": 8,
+    "duration": 30,
+    "run_id": "block08-030s"
+  },
+  "started_epoch": 1795048089.2770975
+}

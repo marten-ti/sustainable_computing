@@ -1,0 +1,117 @@
+{
+  "files": [
+    {
+      "name": "01_application_energy_distribution",
+      "png_pixels": [
+        7200,
+        5280
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_page_points": [
+        864.0,
+        633.6
+      ],
+      "embedded_fonts": [
+        "/CRIRKI+DejaVuSans-Bold",
+        "/CDRQFB+DejaVuSans"
+      ],
+      "vector_pdf": true,
+      "vector_svg": true
+    },
+    {
+      "name": "02_node_energy_distribution",
+      "png_pixels": [
+        7200,
+        5280
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_page_points": [
+        864.0,
+        633.6
+      ],
+      "embedded_fonts": [
+        "/BVGRUG+DejaVuSans-Bold",
+        "/FJBDON+DejaVuSans",
+        "/CPUQYB+DejaVuSans"
+      ],
+      "vector_pdf": true,
+      "vector_svg": true
+    },
+    {
+      "name": "03_energy_cost",
+      "png_pixels": [
+        7200,
+        5280
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_page_points": [
+        864.0,
+        633.6
+      ],
+      "embedded_fonts": [
+        "/GTZCOT+DejaVuSans-Bold",
+        "/DALTPW+DejaVuSans"
+      ],
+      "vector_pdf": true,
+      "vector_svg": true
+    },
+    {
+      "name": "04_stability_vs_duration",
+      "png_pixels": [
+        7200,
+        5280
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_page_points": [
+        864.0,
+        633.6
+      ],
+      "embedded_fonts": [
+        "/FFYEDW+DejaVuSans-Bold",
+        "/CSTYDP+DejaVuSans",
+        "/CPUQYB+DejaVuSans"
+      ],
+      "vector_pdf": true,
+      "vector_svg": true
+    },
+    {
+      "name": "planned_pipeline",
+      "png_pixels": [
+        14400,
+        6000
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_page_points": [
+        1728.0,
+        720.0
+      ],
+      "embedded_fonts": [
+        "/EKVRFI+DejaVuSans-Bold",
+        "/DDLJXY+DejaVuSans",
+        "/GMNIJT+DejaVuSans"
+      ],
+      "vector_pdf": true,
+      "vector_svg": true
+    }
+  ],
+  "bpmn_2_0_xsd_valid": true,
+  "bpmn_structure_valid": true,
+  "input_runs": 32,
+  "input_repetitions_per_duration": 8,
+  "combined_pdf_pages": 5
+}

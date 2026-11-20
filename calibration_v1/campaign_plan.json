@@ -1,0 +1,182 @@
+{
+  "args": {
+    "host": "http://10.152.183.142",
+    "prometheus": "http://10.152.183.218:9090",
+    "locust": "/root/Documents/Codex/2026-11-18/files-pasted-by-the-user-codex/work/locust-venv/bin/locust",
+    "seed": 20261119,
+    "warmup": 15,
+    "mode": "campaign",
+    "users": 3,
+    "repetitions": 8,
+    "durations": [
+      15,
+      30,
+      60,
+      120
+    ]
+  },
+  "plan": [
+    {
+      "block": 1,
+      "duration": 30,
+      "run_id": "block01-030s"
+    },
+    {
+      "block": 1,
+      "duration": 15,
+      "run_id": "block01-015s"
+    },
+    {
+      "block": 1,
+      "duration": 60,
+      "run_id": "block01-060s"
+    },
+    {
+      "block": 1,
+      "duration": 120,
+      "run_id": "block01-120s"
+    },
+    {
+      "block": 2,
+      "duration": 120,
+      "run_id": "block02-120s"
+    },
+    {
+      "block": 2,
+      "duration": 60,
+      "run_id": "block02-060s"
+    },
+    {
+      "block": 2,
+      "duration": 30,
+      "run_id": "block02-030s"
+    },
+    {
+      "block": 2,
+      "duration": 15,
+      "run_id": "block02-015s"
+    },
+    {
+      "block": 3,
+      "duration": 120,
+      "run_id": "block03-120s"
+    },
+    {
+      "block": 3,
+      "duration": 30,
+      "run_id": "block03-030s"
+    },
+    {
+      "block": 3,
+      "duration": 15,
+      "run_id": "block03-015s"
+    },
+    {
+      "block": 3,
+      "duration": 60,
+      "run_id": "block03-060s"
+    },
+    {
+      "block": 4,
+      "duration": 30,
+      "run_id": "block04-030s"
+    },
+    {
+      "block": 4,
+      "duration": 120,
+      "run_id": "block04-120s"
+    },
+    {
+      "block": 4,
+      "duration": 60,
+      "run_id": "block04-060s"
+    },
+    {
+      "block": 4,
+      "duration": 15,
+      "run_id": "block04-015s"
+    },
+    {
+      "block": 5,
+      "duration": 120,
+      "run_id": "block05-120s"
+    },
+    {
+      "block": 5,
+      "duration": 30,
+      "run_id": "block05-030s"
+    },
+    {
+      "block": 5,
+      "duration": 15,
+      "run_id": "block05-015s"
+    },
+    {
+      "block": 5,
+      "duration": 60,
+      "run_id": "block05-060s"
+    },
+    {
+      "block": 6,
+      "duration": 120,
+      "run_id": "block06-120s"
+    },
+    {
+      "block": 6,
+      "duration": 15,
+      "run_id": "block06-015s"
+    },
+    {
+      "block": 6,
+      "duration": 30,
+      "run_id": "block06-030s"
+    },
+    {
+      "block": 6,
+      "duration": 60,
+      "run_id": "block06-060s"
+    },
+    {
+      "block": 7,
+      "duration": 30,
+      "run_id": "block07-030s"
+    },
+    {
+      "block": 7,
+      "duration": 60,
+      "run_id": "block07-060s"
+    },
+    {
+      "block": 7,
+      "duration": 120,
+      "run_id": "block07-120s"
+    },
+    {
+      "block": 7,
+      "duration": 15,
+      "run_id": "block07-015s"
+    },
+    {
+      "block": 8,
+      "duration": 60,
+      "run_id": "block08-060s"
+    },
+    {
+      "block": 8,
+      "duration": 15,
+      "run_id": "block08-015s"
+    },
+    {
+      "block": 8,
+      "duration": 120,
+      "run_id": "block08-120s"
+    },
+    {
+      "block": 8,
+      "duration": 30,
+      "run_id": "block08-030s"
+    }
+  ],
+  "randomization": "one run of each duration per randomized block",
+  "variant": "unchanged baseline only; A/A study, no injected regression"
+}

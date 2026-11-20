@@ -1,0 +1,57 @@
+[
+  {
+    "service": "adservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice@sha256:5a6092151983bf98a05279ff5a64ae82e18f872a3a14b5eddd35da16434e20b8"
+  },
+  {
+    "service": "cartservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice@sha256:a48c617b36f12d755486b58feb4e04beeadf20216a017c4dbe5002c3bcd345b8"
+  },
+  {
+    "service": "checkoutservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice@sha256:51774b1e98dc0454ffcf3782f8a092ac5c440cbeaea25e1e0e416c92c7ba7b5b"
+  },
+  {
+    "service": "currencyservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice@sha256:475209eabe92828ec843d24dce59738cfe48def54eadcca807b26c0fd39158db"
+  },
+  {
+    "service": "emailservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice@sha256:17cffb78f3d8383b0ee1ad8875fc0ef87b920a912302995ad127a5585f2160e2"
+  },
+  {
+    "service": "frontend",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend@sha256:4ed23083391deed59d3dab4a3c72d6c49120f6100f45593b87a537dc094397cd"
+  },
+  {
+    "service": "paymentservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice@sha256:38912ba85fabc875a57cf981a691cfd3dca96c500ffd03b276bbf65ab6e98d08"
+  },
+  {
+    "service": "productcatalogservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice@sha256:efa78eeacc26d7de07388c9c3eb90aeb0dfa8324fce33deb157393d5c1f39119"
+  },
+  {
+    "service": "recommendationservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice@sha256:3f6cf3f0625b56d05e49741202167d0fcaf6c065ef386f66307e3e1a9dc895b8"
+  },
+  {
+    "service": "redis-cart",
+    "image": "redis:7.4.2-alpine",
+    "resolved_image": "docker.io/library/redis@sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952"
+  },
+  {
+    "service": "shippingservice",
+    "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.4",
+    "resolved_image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice@sha256:ec32ef03a874640dbdceb7850327a3f38a7f20b06479be27786ff3fe25569ce2"
+  }
+]

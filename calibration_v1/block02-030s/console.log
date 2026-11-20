@@ -1,0 +1,4 @@
+[2026-11-19 01:23:44,203] Debian-1305-trixie-amd64-base/INFO/locust.main: Starting Locust 2.47.0
+[2026-11-19 01:23:44,203] Debian-1305-trixie-amd64-base/INFO/locust.main: Run time limit set to 75 seconds
+[2026-11-19 01:23:44,204] Debian-1305-trixie-amd64-base/INFO/locust.runners: Ramping to 3 users at a rate of 3.00 per second
+[2026-11-19 01:23:44,204] Debian-1305-trixie-amd64-base/INFO/locust.runners: All users spawned: {"Shopper": 3} (3 total users)

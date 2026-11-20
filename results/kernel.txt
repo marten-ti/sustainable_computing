@@ -1,0 +1,1 @@
+Linux Debian-1305-trixie-amd64-base 6.12.94+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.94-1 (2026-06-20) x86_64 GNU/Linux

@@ -1,0 +1,342 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "node.alpha.kubernetes.io/ttl": "0",
+                    "projectcalico.org/IPv4Address": "138.201.121.190/26",
+                    "projectcalico.org/IPv4VXLANTunnelAddr": "10.1.119.64",
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2026-11-16T14:45:35Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "debian-1305-trixie-amd64-base",
+                    "kubernetes.io/os": "linux",
+                    "microk8s.io/cluster": "true",
+                    "node.kubernetes.io/microk8s-controlplane": "microk8s-controlplane"
+                },
+                "name": "debian-1305-trixie-amd64-base",
+                "resourceVersion": "268178",
+                "uid": "44482a3e-f3c8-4fa2-80f6-1d70c6bbd385"
+            },
+            "spec": {},
+            "status": {
+                "addresses": [
+                    {
+                        "address": "138.201.121.190",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "debian-1305-trixie-amd64-base",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "8",
+                    "ephemeral-storage": "2076376440Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "65521120Ki",
+                    "pods": "110"
+                },
+                "capacity": {
+                    "cpu": "8",
+                    "ephemeral-storage": "2077425016Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "65623520Ki",
+                    "pods": "110"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2026-11-16T14:46:23Z",
+                        "lastTransitionTime": "2026-11-16T14:46:23Z",
+                        "message": "Calico is running on this node",
+                        "reason": "CalicoIsUp",
+                        "status": "False",
+                        "type": "NetworkUnavailable"
+                    },
+                    {
+                        "lastHeartbeatTime": "2026-11-19T01:18:02Z",
+                        "lastTransitionTime": "2026-11-16T14:45:35Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2026-11-19T01:18:02Z",
+                        "lastTransitionTime": "2026-11-16T14:45:35Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2026-11-19T01:18:02Z",
+                        "lastTransitionTime": "2026-11-16T14:45:35Z",
+                        "message": "kubelet has sufficient PID available",
+                        "reason": "KubeletHasSufficientPID",
+                        "status": "False",
+                        "type": "PIDPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2026-11-19T01:18:02Z",
+                        "lastTransitionTime": "2026-11-16T14:46:09Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "features": {
+                    "supplementalGroupsPolicy": true
+                },
+                "images": [
+                    {
+                        "names": [
+                            "docker.io/grafana/grafana@sha256:54e297ac67e2b72572f926892f4e06074dc4f79f2a56ed9a9ca9a88a46f28733",
+                            "docker.io/grafana/grafana:13.3.1-distroless"
+                        ],
+                        "sizeBytes": 488494816
+                    },
+                    {
+                        "names": [
+                            "docker.io/calico/node@sha256:eed399f2a727cfc1f374ab5c9cda6123c207e794ed8dc66c7eb6d8db412669e1",
+                            "docker.io/calico/node:v3.29.3"
+                        ],
+                        "sizeBytes": 144069230
+                    },
+                    {
+                        "names": [
+                            "quay.io/prometheus/prometheus@sha256:9764044e09eb2c9e1abdb12d0f0188d4efb7384b0262d3c080f0fc59045c89ba",
+                            "quay.io/prometheus/prometheus:v3.16.0-distroless"
+                        ],
+                        "sizeBytes": 115829580
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice@sha256:5a6092151983bf98a05279ff5a64ae82e18f872a3a14b5eddd35da16434e20b8",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.4"
+                        ],
+                        "sizeBytes": 109363949
+                    },
+                    {
+                        "names": [
+                            "docker.io/calico/cni@sha256:53f826d3f565a6635b4d58ea4fcfdc0e7ea418ffd4dbb495b4c801074e6eb99c",
+                            "docker.io/calico/cni:v3.29.3"
+                        ],
+                        "sizeBytes": 99286923
+                    },
+                    {
+                        "names": [
+                            "quay.io/sustainable_computing_io/kepler@sha256:d8101f9618d5835e46b146014f4878b4f2c89b17186e894dfc441ecdf48d8eac",
+                            "quay.io/sustainable_computing_io/kepler:v0.13.0"
+                        ],
+                        "sizeBytes": 76927549
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice@sha256:17cffb78f3d8383b0ee1ad8875fc0ef87b920a912302995ad127a5585f2160e2",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.4"
+                        ],
+                        "sizeBytes": 58633220
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice@sha256:3f6cf3f0625b56d05e49741202167d0fcaf6c065ef386f66307e3e1a9dc895b8",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.4"
+                        ],
+                        "sizeBytes": 55767325
+                    },
+                    {
+                        "names": [
+                            "quay.io/prometheus/alertmanager@sha256:5f6e66c01bd610aef6dd671642a52eee775fd3a89bd8788ebada33efaf373d10",
+                            "quay.io/prometheus/alertmanager:v0.35.0"
+                        ],
+                        "sizeBytes": 44234644
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice@sha256:475209eabe92828ec843d24dce59738cfe48def54eadcca807b26c0fd39158db",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.4"
+                        ],
+                        "sizeBytes": 43257391
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice@sha256:38912ba85fabc875a57cf981a691cfd3dca96c500ffd03b276bbf65ab6e98d08",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.4"
+                        ],
+                        "sizeBytes": 41654966
+                    },
+                    {
+                        "names": [
+                            "docker.io/calico/kube-controllers@sha256:5516ab776c38525fcc985a3030b4f2fd472da68b4170601c23bf6887bfdce703",
+                            "docker.io/calico/kube-controllers:v3.29.3"
+                        ],
+                        "sizeBytes": 36282346
+                    },
+                    {
+                        "names": [
+                            "quay.io/kiwigrid/k8s-sidecar@sha256:52d311dcedd587421a236c4d6c621f05614c40a51386e955e0699dca97ec0880",
+                            "quay.io/kiwigrid/k8s-sidecar:2.14.3"
+                        ],
+                        "sizeBytes": 26873261
+                    },
+                    {
+                        "names": [
+                            "docker.io/coredns/coredns@sha256:9b9128672209474da07c91439bf15ed704ae05ad918dd6454e5b6ae14e35fee6",
+                            "docker.io/coredns/coredns:1.13.1"
+                        ],
+                        "sizeBytes": 23553139
+                    },
+                    {
+                        "names": [
+                            "quay.io/prometheus-operator/prometheus-operator@sha256:7986c2afa118c9dea07d01c5e1a29555824582e92f6ee8607591d1a7178acf29",
+                            "quay.io/prometheus-operator/prometheus-operator:v0.95.2"
+                        ],
+                        "sizeBytes": 22645444
+                    },
+                    {
+                        "names": [
+                            "registry.k8s.io/kube-state-metrics/kube-state-metrics@sha256:42cfe3723a5f058171c627537fb57a3ea0f26e4380fa18555a95cb1a1b4cfc5b",
+                            "registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.20.0"
+                        ],
+                        "sizeBytes": 19261896
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice@sha256:a48c617b36f12d755486b58feb4e04beeadf20216a017c4dbe5002c3bcd345b8",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.4"
+                        ],
+                        "sizeBytes": 17695280
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend@sha256:4ed23083391deed59d3dab4a3c72d6c49120f6100f45593b87a537dc094397cd",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.4"
+                        ],
+                        "sizeBytes": 17369651
+                    },
+                    {
+                        "names": [
+                            "docker.io/library/redis@sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+                            "docker.io/library/redis:7.4.2-alpine"
+                        ],
+                        "sizeBytes": 17238094
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice@sha256:efa78eeacc26d7de07388c9c3eb90aeb0dfa8324fce33deb157393d5c1f39119",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.4"
+                        ],
+                        "sizeBytes": 16398431
+                    },
+                    {
+                        "names": [
+                            "quay.io/prometheus-operator/prometheus-config-reloader@sha256:cc74ddedad4ab1c49446971f6d51302ad4303d8660a2018af925c7f62c114304",
+                            "quay.io/prometheus-operator/prometheus-config-reloader:v0.95.2"
+                        ],
+                        "sizeBytes": 14945771
+                    },
+                    {
+                        "names": [
+                            "quay.io/prometheus/node-exporter@sha256:8c9bac11973b94b59be88d6e11fee4429aa743c8846cdc75d65b18db33f6a106",
+                            "quay.io/prometheus/node-exporter:v1.12.1-distroless"
+                        ],
+                        "sizeBytes": 13123706
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice@sha256:51774b1e98dc0454ffcf3782f8a092ac5c440cbeaea25e1e0e416c92c7ba7b5b",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.4"
+                        ],
+                        "sizeBytes": 11970873
+                    },
+                    {
+                        "names": [
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice@sha256:ec32ef03a874640dbdceb7850327a3f38a7f20b06479be27786ff3fe25569ce2",
+                            "us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.4"
+                        ],
+                        "sizeBytes": 11540171
+                    },
+                    {
+                        "names": [
+                            "ghcr.io/jkroepke/kube-webhook-certgen@sha256:8009b04f9873f7279b5adee37fdd03b6a9aa7b6751d4f69fde2683010e41cd1f",
+                            "ghcr.io/jkroepke/kube-webhook-certgen:1.11.1"
+                        ],
+                        "sizeBytes": 9531083
+                    },
+                    {
+                        "names": [
+                            "registry.k8s.io/pause@sha256:ee6521f290b2168b6e0935a181d4cff9be1ac3f505666ef0e3c98fae8199917a",
+                            "registry.k8s.io/pause:3.10"
+                        ],
+                        "sizeBytes": 320368
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "d01139df-bbae-4654-9117-94525adf40dd",
+                    "containerRuntimeVersion": "containerd://2.1.6",
+                    "kernelVersion": "6.12.94+deb13-amd64",
+                    "kubeProxyVersion": "",
+                    "kubeletVersion": "v1.35.6",
+                    "machineID": "433620ace5fc474d8dc4c987724c0c3e",
+                    "operatingSystem": "linux",
+                    "osImage": "Debian GNU/Linux 13 (trixie)",
+                    "swap": {
+                        "capacity": 34325131264
+                    },
+                    "systemUUID": "ca51b575-43c1-5547-9cb1-64173422b9b6"
+                },
+                "runtimeHandlers": [
+                    {
+                        "features": {
+                            "recursiveReadOnlyMounts": true,
+                            "userNamespaces": true
+                        },
+                        "name": ""
+                    },
+                    {
+                        "features": {
+                            "recursiveReadOnlyMounts": false,
+                            "userNamespaces": false
+                        },
+                        "name": "kata"
+                    },
+                    {
+                        "features": {
+                            "recursiveReadOnlyMounts": false,
+                            "userNamespaces": false
+                        },
+                        "name": "nvidia-container-runtime"
+                    },
+                    {
+                        "features": {
+                            "recursiveReadOnlyMounts": true,
+                            "userNamespaces": true
+                        },
+                        "name": "runc"
+                    }
+                ]
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}
